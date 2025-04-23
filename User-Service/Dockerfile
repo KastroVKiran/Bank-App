@@ -1,7 +1,5 @@
-FROM openjdk:17-jdk
-
-COPY target/userservice-0.0.1-SNAPSHOT.jar .
-
-EXPOSE 8082
-
-ENTRYPOINT ["java", "-jar", "userservice-0.0.1-SNAPSHOT.jar"]
+FROM openjdk:17-jdk-slim
+WORKDIR /app
+COPY target/user-service-*.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]
